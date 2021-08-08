@@ -1,0 +1,50 @@
+<h2>Explore Countries</h2>
+
+<form [formGroup]="countryService.countryForm" class="normal-form">
+  <mat-grid-list cols="1" rowHeight="150px">
+    <mat-grid-tile class="controles-container">
+      <div class="controles-container">
+        <mat-form-field id="countryCode" class="inputSpace">
+          <input  formControlName="countryCode" matInput placeholder="countryCode*"/>
+          <mat-error>countryCode is required</mat-error>
+        </mat-form-field>
+
+
+        <div class="add-bottom-padding">
+          <mat-checkbox formControlName="incomeLevel">IncomeLevel</mat-checkbox>
+          <mat-checkbox formControlName="region">Region</mat-checkbox>
+          <mat-checkbox formControlName="lendingType">LendingType</mat-checkbox>
+        </div>
+
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="button" [disabled]="countryService.countryForm.invalid" (click)="displayValue()">Search</button>
+
+        </div>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+
+<div>
+  <h4>Similar country found : {{similarCountryFound}}</h4>
+</div>
+<hr/>
+<div class="mapDiv">
+  <agm-map
+    [zoom]="2"
+    [disableDefaultUI]="false"
+<!--    [zoomControl]="false"-->
+    (mapClick)="mapClicked($event)">
+
+    <agm-marker
+      *ngFor="let hCountry of listCountry"
+      [latitude]="hCountry.latitude"
+      [longitude]="hCountry.longitude"
+      [iconUrl]="iconUrl"
+      [label]="hCountry.id" >
+
+
+    </agm-marker>
+  </agm-map>
+</div>

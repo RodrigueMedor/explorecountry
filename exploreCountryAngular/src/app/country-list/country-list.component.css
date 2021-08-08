@@ -1,0 +1,36 @@
+agm-map {
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 450px;
+  width: 900px;
+}
+
+#countryCode{
+
+}
+
+h2{
+  margin-top:20px;
+}
+
+h2,h4{
+  margin-left: 20px;
+}
+
+.add-bottom-padding{
+  margin-left: 0px;
+}
+
+mat-checkbox{
+  margin-left: 10px;
+}
+
+.mapDiv{
+  margin-left: 20px;
+}
+
+mat-grid-tile{
+  margin-top: 5px;
+  padding-top: 1px;
+}
+
